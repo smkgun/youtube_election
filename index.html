@@ -253,8 +253,7 @@
       display: grid;
       grid-template-columns: 180px repeat(6, 1fr);
       max-width: 980px;
-      margin: 0 auto;
-      gap: 3px;
+      overflow-x: auto;     /* ✅ 가로 스크롤 추가 */
     }
     
     .heatmap-header {
@@ -330,7 +329,7 @@
       background: linear-gradient(to right, #5cb85c, #5bc0de);
     }
     
-        @media (max-width: 768px) {
+      @media (max-width: 768px) {
       h1 {
         font-size: 2rem;
       }
@@ -354,6 +353,24 @@
         width: 100%;
         flex: 1 1 100%;
       }
+       .heatmap-grid {
+         display: block;         /* ✅ 모바일에서는 grid 대신 block */
+         overflow-x: scroll;
+         white-space: nowrap;
+      }
+       .heatmap-row-label,
+       .heatmap-cell {
+         display: inline-block;
+         min-width: 80px;
+         text-align: center;
+      }
+
+       .heatmap-group-label {
+         display: block;
+         margin-top: 20px;
+         font-size: 1.1rem;
+      }
+    }
   </style>
 </head>
 <body>
